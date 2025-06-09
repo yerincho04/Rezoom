@@ -1,0 +1,22 @@
+<header class="h-40 bg-gradient-to-b from-[#2e2e2e] to-gray-300 text-white px-8 py-4 flex justify-between items-center">
+  <a href="/">
+  <img src="/logo.png" alt="Rézoom" class="h-16 md:h-14" />
+  </a>
+
+  <nav class="space-x-6 text-sm">
+  <% if (email) { %>
+  <a href="/feedback" class="hover:text-yellow-400">자소서 feedback</a>
+  <% } else { %>
+    <a href="#feedback" class="hover:text-yellow-400">자소서 feedback</a>
+  <% } %>
+
+  <% if (email) { %>
+    <a href="/todo" class="hover:text-yellow-400">To-do</a>
+    <div class="relative inline-block text-sm">
+      <a href="/profile" class="hover:text-yellow-400"><%= email %></a>
+    </div>
+  <% } else { %>
+    <a href="/login" class="hover:text-yellow-400">Login / Sign up</a>
+  <% } %>
+  </nav>
+</header>
