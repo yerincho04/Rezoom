@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>자소서 History</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 min-h-screen font-sans">
+
+  <!-- Header -->
+  <%- include('partials/header', { email }) %>
+
+  <main class="max-w-5xl mx-auto p-8 space-y-8">
+    <h1 class="text-2xl font-bold mb-6">📝 자소서 History</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-bold mb-4">자소서 History</h2>
+      <table class="w-full text-sm table-fixed border-separate border-spacing-y-2">
+        <thead>
+          <tr>
+            <th class="text-left px-4 py-2">기업</th>
+            <th class="text-left px-4 py-2">Feedback</th>
+            <th class="text-left px-4 py-2">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% feedbackHistory.forEach(fb => { %>
+            <tr class="border-t border-b border-gray-200">
+              <td class="px-4 py-2"><%= fb.company %></td>
+              <td class="px-4 py-2">
+                <a href="/feedback/view/<%= fb.id %>" class="text-blue-600 hover:underline">Feedback + To-do list 보기</a>
+              </td>
+              <td class="px-4 py-2"><%= fb.score || 'N/A' %>/10</td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html> 

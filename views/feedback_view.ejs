@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title><%= feedback.company %> 피드백 보기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 font-sans">
+
+  <!-- Header -->
+  <%- include('partials/header', { email }) %>
+
+  <!-- Main -->
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-lg shadow">
+    <h1 class="text-2xl font-bold mb-1">
+      <%= feedback.company %> - <%= feedback.position %> 피드백
+    </h1>
+    <p class="text-sm text-gray-500 mb-4">
+      업로드일: <%= new Date(feedback.created_at).toLocaleDateString('ko-KR') %>
+    </p>
+    
+
+    <!-- Feedback Section -->
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-xl font-bold mb-3">피드백</h2>
+      <div class="whitespace-pre-wrap text-gray-800 bg-gray-100 p-6 rounded-lg border border-gray-300 text-sm leading-relaxed">
+        <%= feedback.full_feedback %>
+      </div>
+    </div>
+
+    <!-- To-do List Section -->
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-3">To-do 리스트</h2>
+      <div class="whitespace-pre-wrap text-gray-800 bg-gray-100 p-6 rounded-lg border border-gray-300 text-sm leading-relaxed">
+        <%= feedback.todo %>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <a href="/feedback/history" class="text-blue-600 hover:underline">← 돌아가기</a>
+    </div>
+  </main>
+</body>
+</html>
